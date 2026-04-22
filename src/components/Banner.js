@@ -52,7 +52,7 @@ const Banner = () => {
             Passionate CSE Student and Full Stack Developer | Innovating the Future of Development 🚀
           </p>
           <div>
-            <button className='btn btn-lg' onClick={()=>{window.location.href="https://drive.google.com/file/d/1arteEbxaBpchNi8l7_ewtMzVLjwKZfu_/view?usp=sharing"}}>Resume</button>
+            <button className='btn btn-lg' onClick={()=>{window.location.href="https://drive.google.com/file/d/1L6y7ZDvZRglRY-Q7-LTojqgFXgliDxAX/view?usp=sharing"}}>Resume</button>
           </div>
           <motion.div
             className='flex gap-x-6 max-w-max mx-auto lg:mx-8 mt-4'

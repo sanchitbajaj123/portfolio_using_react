@@ -4,6 +4,7 @@ import Banner from './components/Banner';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import About from './components/About';
+import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Work from './components/Work';
 import Contact from './components/Contact';
@@ -15,6 +16,7 @@ const App = () => {
       <Banner />
       <Nav />
       <About />
+      <Experience />
       <Skills />
       <Certificates/>
       <Work />

@@ -1,95 +1,92 @@
 import React from "react";
 
+const certificates = [
+  {
+    title: "Claude Code in Action",
+    issuer: "Anthropic",
+    date: "March 2026",
+    link: "https://verify.skilljar.com/c/awh4q47boer8",
+  },
+  {
+    title: "Cloud Computing",
+    issuer: "NPTEL",
+    date: "October 2024",
+    link: "https://archive.nptel.ac.in/content/noc/NOC24/SEM2/Ecertificates/106/noc24-cs118/Course/NPTEL24CS118S167020234304432344.pdf",
+  },
+  {
+    title: "Full Stack Web Development Using MERN",
+    issuer: "CipherSchools",
+    date: "July 2024",
+    link: "https://www.cipherschools.com/certificate/preview?id=66aa7ed7777cd431c3cc53da",
+  },
+  {
+    title: "Server Side JavaScript with Node.js",
+    issuer: "Coursera",
+    date: "April 2024",
+    link: "https://www.coursera.org/account/accomplishments/verify/PPS3QL4DT3VL",
+  },
+];
+
+const achievements = [
+  '2nd Prize, State-Level Tech Fest ("Digi Park")',
+  "3rd Prize, Business Plan Competition, APJ Spark",
+];
+
+const CERT_ICON = "https://cdn-icons-png.flaticon.com/512/942/942748.png";
+
 function Certificates() {
-  const certificates = [
-    {
-      title: "Cloud Computing",
-      issuer: "NPTEL",
-      date: "October 2024",
-      link: "https://archive.nptel.ac.in/content/noc/NOC24/SEM2/Ecertificates/106/noc24-cs118/Course/NPTEL24CS118S167020234304432344.pdf",
-      img: "https://cdn-icons-png.flaticon.com/512/942/942748.png", // New working icon
-    },
-    {
-      title: "Full Stack Web Development Using MERN",
-      issuer: "CipherSchools",
-      date: "July 2024",
-      link: "https://www.cipherschools.com/certificate/preview?id=66aa7ed7777cd431c3cc53da",
-      img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
-    },
-    {
-      title: "Server Side JavaScript with Node.js",
-      issuer: "Coursera",
-      date: "April 2024",
-      link: "https://www.coursera.org/account/accomplishments/verify/PPS3QL4DT3VL",
-      img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
-    },
-  ];
-
   return (
-    <section id="certificates" style={{ padding: "2rem" }}>
-      <center><h2 className="text-[50px] mb-8 font-bold text-accent">Certificates</h2></center>
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1.5rem" }}>
-        {certificates.map((cert, index) => (
-          <div
-            key={index}
-            style={{
-              border: "1px solid #ccc",
-              borderRadius: "15px",
-              padding: "1.5rem",
-              width: "300px",
-              textAlign: "center",
-              boxShadow: "0 6px 12px rgba(0, 0, 0, 0.1)",
-              transition: "transform 0.3s, box-shadow 0.3s",
-              backgroundColor: "#fff",
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = "scale(1.05)";
-              e.currentTarget.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.15)";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = "0 6px 12px rgba(0, 0, 0, 0.1)";
-            }}
-          >
-            {/* Certificate Icon */}
-            <img 
-              src={cert.img} 
-              alt="certificate-icon" 
-              style={{ width: "70px", height: "70px", marginBottom: "1rem" }}
-            />
+    <section id="certificates" className="mt-40 py-8">
+      <div className="container mx-auto text-center">
+        <h2 className="text-[50px] mb-12 font-bold text-accent">Certificates</h2>
 
-            {/* Certificate Info */}
-            <h3 style={{ color:"black", fontSize: "22px", marginBottom: "0.5rem", fontWeight: "bold" }}>{cert.title}</h3>
-            <p style={{ color:"black",margin: "0.3rem 0" }}>
-              <strong>Issued by:</strong> {cert.issuer}
-            </p>
-            <p style={{ color:"black",margin: "0.3rem 0" }}>
-              <strong>Date:</strong> {cert.date}
-            </p>
-
-            {/* Button */}
-            <a
-              href={cert.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                marginTop: "1rem",
-                display: "inline-block",
-                padding: "0.6rem 1.2rem",
-                backgroundColor: "#007bff",
-                color: "#fff",
-                fontWeight: "600",
-                borderRadius: "30px",
-                textDecoration: "none",
-                transition: "background-color 0.3s",
-              }}
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
-              onMouseOut={(e) => (e.target.style.backgroundColor = "#007bff")}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {certificates.map((cert) => (
+            <div
+              key={cert.title}
+              className="bg-black/20 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105"
             >
-              View Certificate
-            </a>
-          </div>
-        ))}
+              <img
+                src={CERT_ICON}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="w-16 h-16 mb-4"
+              />
+              <h3 className="text-lg font-bold mb-2 leading-snug">{cert.title}</h3>
+              <p className="text-sm text-white/70">{cert.issuer}</p>
+              <p className="text-sm text-white/70 mb-4">{cert.date}</p>
+
+              {cert.link ? (
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto inline-block px-5 py-2 rounded-full bg-accent text-white font-semibold text-sm transition-opacity hover:opacity-80"
+                >
+                  View Certificate
+                </a>
+              ) : (
+                <span className="mt-auto inline-block px-5 py-2 rounded-full border border-white/20 text-white/60 font-semibold text-sm">
+                  Completed
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <h2 className="text-[36px] mb-8 font-bold text-accent">Achievements</h2>
+        <div className="flex flex-col sm:flex-row justify-center gap-6 max-w-3xl mx-auto">
+          {achievements.map((item) => (
+            <div
+              key={item}
+              className="flex-1 bg-black/20 backdrop-blur-sm border border-white/10 rounded-2xl p-6"
+            >
+              <span className="text-3xl block mb-3" role="img" aria-label="trophy">🏆</span>
+              <p className="text-base leading-snug">{item}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

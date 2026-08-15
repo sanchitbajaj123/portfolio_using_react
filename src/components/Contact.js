@@ -5,14 +5,14 @@ import { useInView } from 'react-intersection-observer';
 const Contact = () => {
   const controls = useAnimation();
   const { ref, inView } = useInView({
-    triggerOnce: false, 
-    threshold: 0.1, 
+    triggerOnce: false,
+    threshold: 0.1,
   });
   useEffect(() => {
     if (inView) {
       controls.start({ opacity: 1, x: 0, transition: { duration: 2 } });
     } else {
-      controls.start({ opacity: 0, x: -100 }); 
+      controls.start({ opacity: 0, x: -100 });
     }
   }, [inView, controls]);
 
@@ -22,7 +22,7 @@ const Contact = () => {
         <div className='flex flex-col lg:flex-row'>
           <div className='flex-1 text-center'>
             <motion.div
-          initial={{ opacity: 0, x: -100 }} 
+          initial={{ opacity: 0, x: -100 }}
           animate={controls}
           ref={ref}
             >
@@ -30,9 +30,34 @@ const Contact = () => {
               <h4 className='text-4xl uppercase text-accent font-extrabold mb-2 tracking-wide lg:text-9xl'>
                 Get in touch
               </h4>
-              <h2 className='text-2xl lg:text-6xl leading-none mb-12'>
+              <h2 className='text-2xl lg:text-6xl leading-none mb-8'>
                 Let's work<br />together!
               </h2>
+              <div className='mb-12 flex flex-col gap-y-2 text-base lg:text-lg'>
+                <a className='hover:text-accent transition-colors' href='mailto:sanchitbajaj2003@gmail.com'>
+                  ✉️ sanchitbajaj2003@gmail.com
+                </a>
+                <a className='hover:text-accent transition-colors' href='tel:+917347204088'>
+                  📞 +91 7347204088
+                </a>
+                <span>📍 Gurugram, India</span>
+                <a
+                  className='hover:text-accent transition-colors'
+                  href='https://www.linkedin.com/in/sanchit-bajaj2003/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  🔗 linkedin.com/in/sanchit-bajaj2003
+                </a>
+                <a
+                  className='hover:text-accent transition-colors'
+                  href='https://github.com/sanchitbajaj123'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  💻 github.com/sanchitbajaj123
+                </a>
+              </div>
             </motion.div>
           </div>
           <form className='flex-1 border rounded-2xl flex flex-col gap-y-6 pb-24 p-6 items-start' action="https://api.web3forms.com/submit" method="POST">
